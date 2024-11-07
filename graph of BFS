@@ -1,0 +1,53 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+class Graph {
+    private LinkedList<Integer>[] adjList;
+
+    Graph(int vertices) {
+        adjList = new LinkedList[vertices];
+        for (int i = 0; i < vertices; i++) {
+            adjList[i] = new LinkedList<>();
+        }
+    }
+    public void addedge(int a, int b) {
+        adjList[a].add(b);
+        adjList[b].add(a);  
+    }
+    public void bfs(int start) {
+        boolean[] visited = new boolean[adjList.length];
+        Queue<Integer> queue = new LinkedList<>();
+
+        visited[start] = true;
+        queue.add(start);
+
+        System.out.print("BFS Traversal: ");
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            System.out.print(node + " ");
+
+            for (int neighbor : adjList[node]) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.add(neighbor);
+                }
+            }
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Graph g = new Graph(6);
+        g.addedge(0, 1);
+        g.addedge(0, 2);
+        g.addedge(1, 3);
+        g.addedge(2, 4);
+        g.addedge(3, 5);
+        g.addedge(4, 5);
+
+        g.bfs(0);  
+
+    }
+}
