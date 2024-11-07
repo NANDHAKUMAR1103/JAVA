@@ -1,0 +1,96 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.Random;
+import java.util.Scanner;
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        Random r=new Random();
+        
+        System.out.println("enter the team name:");
+        String t1= sc.nextLine();
+        System.out.println("enter the team name:");
+        String t2= sc.nextLine();
+        
+            int ans1=r.nextInt(300)+1;
+        int ans2=r.nextInt(300)+1;
+        
+        String[] hint=new String[3];
+        String[] hint1=new String[3];
+        
+        hint[0]=ans1>150?"it is greater than 150":"it is less than 150";
+        hint[1]=ans1%2==0?"it is even":"it is odd";
+        hint[2]=ans1%5==0?"it is divisible of 5":"it is not divisible of 5";
+        
+        int count=0;
+        String ch;
+        for(int i=0;i<3;i++)
+        {
+            System.out.println("do you want hint");
+            ch=sc.nextLine();
+            if(ch.equalsIgnoreCase("y"))
+            {
+                System.out.println("hint no"+i+1 +hint[i]);
+                count++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        System.out.println("predict your answer");
+        int guss=sc.nextInt();
+        sc.nextLine();
+        
+        System.out.println();
+        
+        hint1[0]=ans2>150?"it is greater than 150":"it is less than 150";
+        hint1[1]=ans2%2==0?"it is even":"it is odd";
+        hint1[2]=ans2%5==0?"it is divisible of 5":"it is not divisible of 5";
+        
+        int count1=0;
+        String ch1;
+        for(int i=0;i<3;i++)
+        {
+            System.out.println("do you want hint");
+            ch1=sc.nextLine();
+            if(ch1.equalsIgnoreCase("y"))
+            {
+                System.out.println("hint no" +hint[i]);
+                count1++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        System.out.println("predict your answer");
+        int guss1=sc.nextInt();
+        
+        int s1=300-(count*25);
+        
+        s1=s1-Math.abs(ans1-guss);
+        System.out.println("predict value"+guss);
+        System.out.println("final value is" +s1);
+        
+        
+        
+        int s2=300-(count*25);
+        s2=s2-Math.abs(ans2-guss1);
+        System.out.println("predict value"+guss1);
+        System.out.println("final value is" +s2);
+        if (s1>s2)
+        {
+            System.out.println("Winner is "+t1);
+        }
+        else
+        {
+            System.out.println("Winner is"+t2);
+        }
+       
+        
+        
+   
+    }
+}
