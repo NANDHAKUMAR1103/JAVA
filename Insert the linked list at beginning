@@ -1,0 +1,43 @@
+class LList{
+    Node node;
+    Node head=null;
+    
+    class Node{
+        int data;
+        Node next;
+        
+        Node(int val){
+            data=val;
+            next=null;
+        }
+    }
+    public void insert(int val){
+        Node newNode = new Node(val);
+        if(head==null){
+            head = newNode;
+        }
+        else{
+            newNode.next = head;
+            head = newNode;
+        }
+    }
+     public void display(){
+        Node temp = head;
+        while(temp!=null){
+            System.out.print(temp.data+"-->");
+            temp = temp.next;
+        }
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    LList l = new LList();
+	    l.insert(100);
+	    l.insert(200);
+	    l.insert(300);
+	    l.insert(400);
+	    l.display();
+		System.out.println("Hello World");
+	}
+}
