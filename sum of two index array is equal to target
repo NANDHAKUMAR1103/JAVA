@@ -1,0 +1,35 @@
+import java.util.*;
+class Main {
+    
+    public static int[] master(int[] nums,int target)
+    {
+        int s=0;
+        int e = nums.length-1;
+        while(s<e)
+        {
+            if(nums[s]+nums[e]==target)
+            {
+                return new int[]{s,e};
+            }
+                else if(nums[s]+nums[e]<target)
+                s++;
+                else
+                e--;
+            
+        }
+        return new int[]{};
+    }
+    
+    public static void main(String[] args) {
+        int[] nums = {2,7,11,15,16};
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a target: ");
+        int target = sc.nextInt();
+        int[] res = master(nums,target);
+        if(res.length==2)
+        System.out.println(res[0]+" "+res[1]);
+        else
+        System.out.println("no result found");
+        
+    }
+}
