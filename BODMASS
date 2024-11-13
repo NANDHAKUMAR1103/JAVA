@@ -1,0 +1,88 @@
+import java.util.Stack;
+
+public class Main 
+{
+
+    public static int beast(String str)
+    { 
+        Stack<Integer> num = new Stack<>();
+        Stack<Character> symbol = new Stack<>();
+        int i = 0;
+        
+        while (i < str.length()) 
+        {
+            if (Character.isDigit(str.charAt(i)))
+            {
+                int a = 0;
+                while (i < str.length() && Character.isDigit(str.charAt(i))) 
+                {
+                    a = a * 10 + (str.charAt(i) - '0');
+                    i++;
+                }
+                num.push(a);
+            } 
+            else if (str.charAt(i) == '+' || str.charAt(i) == '-' || str.charAt(i) == '/' || str.charAt(i) == '*') 
+            {
+                while (!symbol.isEmpty() && precedence(symbol.peek()) >= precedence(str.charAt(i))) 
+                {
+                    char op = symbol.pop();
+                    int num2 = num.pop();
+                    int num1 = num.pop();
+                    num.push(operation(op, num1, num2));
+                }
+                symbol.push(str.charAt(i));
+                i++;
+            } 
+            else 
+            {
+                i++; 
+            }
+        }
+
+        while (!symbol.isEmpty())
+        {
+            char op = symbol.pop();
+            int num2 = num.pop();
+            int num1 = num.pop();
+            num.push(operation(op, num1, num2));
+        }
+
+        return num.pop(); 
+    }
+
+    public static int precedence(char ch) 
+    { 
+        switch (ch) {
+            case '+':
+            case '-':
+                return 1;
+            case '*':
+            case '/':
+                return 2;
+        }
+        return -1; 
+    }
+
+    public static int operation(char op, int num1, int num2) 
+    { 
+        switch (op)
+        {
+            case '+':
+                return num1 + num2;
+            case '-':
+                return num1 - num2;
+            case '*':
+                return num1 * num2;
+            case '/':
+                if (num2 != 0) return num1 / num2;
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) 
+    {
+        String str = "17+8-9/2+3*3";
+        int res = beast(str);
+        System.out.println("The result is " + res);
+    }
+}
