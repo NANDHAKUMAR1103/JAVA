@@ -1,0 +1,28 @@
+import java.util.*;
+class Main 
+{
+    public static void repeatation(int num)
+    {
+        String str = Integer.toString(num);
+        HashMap<Character,Integer> map = new HashMap<>();
+        int count=0;
+        for(int a=0;a<str.length();a++)
+        {
+            char ch =str.charAt(a);
+            map.put(ch,map.getOrDefault(ch,0)+1);
+            
+        }
+        for(int i:map.values()){
+            if(i==2 || i>2) count+=1;
+        }
+        System.out.println(map);
+        System.out.println(count);
+    }
+    
+    public static void main(String[] args) 
+    {
+        int num = 772334251;
+        repeatation(num);
+        
+    }
+}
