@@ -1,0 +1,36 @@
+
+import java.util.*;
+class HelloWorld {
+    
+    public static int calculate(int[] num,int n){
+        int left =0;
+        int right=num.length-1;
+        int mid;
+        while(left<=right){
+             mid = left+(right-left)/2;
+            if(num[mid]==n){
+                return n;
+            }
+            else if(num[mid]<n){
+                left = mid+1;
+            }
+             else{
+            right = mid -1 ; 
+        }
+        }return -1;
+    }
+    
+    public static void main(String[] args) {
+    
+        Scanner sc = new Scanner(System.in);
+        int[] num ={20,30,40,50,55,65,75};
+        System.out.println("Enter th num of array: ");
+        int n = sc.nextInt();
+        int res = calculate(num,n);
+        if(res!=-1)
+        System.out.println("The element found in "+res);
+        else
+        System.out.println("The element not found in array");
+        
+    }
+}
