@@ -1,0 +1,90 @@
+import java.util.*;
+class llist{
+    Node node;
+    Node head=null;
+    
+    class Node{
+        int data;
+        Node next;
+        
+        Node(int val){
+            data=val;
+            next=null;
+        }
+    }
+    
+    public void insert(int val)
+    {
+        Node newnode = new Node(val);
+        if(head==null)
+        {
+         head = newnode;   
+        }
+        else
+        {
+            newnode.next=head;
+            head = newnode;
+        }
+          
+    }
+    
+    public void insertpost(int val,int pos){
+        if(pos==0)
+        insert(val);
+        else{
+            Node newnode = new Node(val);
+            Node temp=head;
+            for(int i=0;i>pos;i++){
+                if(temp.next==null){
+                    System.out.println("out of bound");
+                    return;
+                }temp=temp.next;
+            }
+            newnode.next=temp.next;
+            temp.next=newnode;
+        }
+    }
+ 
+     public void delete(int pos){
+        Node temp = head;
+        for(int  i=1;i<pos;i++){
+            temp=temp.next;
+        }temp.next= temp.next.next;
+        
+    }
+       
+
+    public void display(){
+        Node temp = head;
+        while(temp!=null){
+            System.out.print(temp.data+"-->");
+            temp = temp.next;
+        }
+    }
+    
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        llist l = new llist();
+        l.insert(100);
+        l.insert(200);
+        l.insert(300);
+        l.insert(400);
+        l.insert(500);
+        l.insert(600);
+        l.display();
+        System.out.println();
+        l.insertpost(175,2);
+        l.display();
+        System.out.println();
+        l.delete(4);
+        l.display();
+        
+       
+        
+    }
+}
