@@ -1,0 +1,44 @@
+package TRAVEL;
+import java.util.*;
+
+public class Main {
+public static void main(String[] args) {
+	
+	ArrayList<BUS> buses = new ArrayList<>();
+	ArrayList<BOOKING> booking = new ArrayList<>();
+	
+	
+	buses.add(new BUS(1,true,50));
+	buses.add(new BUS(2,true,55));
+	buses.add(new BUS(3,true,2));
+	
+	for(BUS b :buses) {
+		b.display();   
+	}
+	
+	Scanner sc = new Scanner(System.in);
+	int ch = 1;
+	
+	while(ch==1)
+	{
+		
+		System.out.println("Enter 1 to book,2 to exit");
+		ch = sc.nextInt();
+		if(ch==1)
+		{
+			BOOKING book = new BOOKING(sc);
+			
+			if(book.isavaliable(buses,booking))
+			{
+				System.out.println("Ticket booked");
+			    booking.add(book);
+			}
+			else
+			{
+				System.out.println("No Tickets Avaliable");
+			}
+		}
+	}
+	sc.close();
+}
+}
