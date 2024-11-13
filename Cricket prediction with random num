@@ -1,0 +1,84 @@
+
+import java.util.Random;
+import java.util.Scanner;
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    Random r = new  Random();
+	    
+		System.out.println("Enter the team1 name: ");
+		String team1 = sc.nextLine();
+		System.out.println("Enter the team2 name: ");
+		String team2 = sc.nextLine();
+		
+		int ans1 = r.nextInt(300)+1;
+		int ans2 = r.nextInt(300)+1;
+		
+		String[] hint1 = new String[3];
+		String[] hint2 = new String[3];
+		
+	     
+		
+		 hint1[0] = ans1>150 ? "It is greater then 150":"It is less than 150";
+		 hint1[1] = ans1%2==0 ? "It is even number":"It is odd number";
+		 hint1[2] = ans1%5==0 ? "It is divisible by 5":"It is not divisible by 5";
+		 
+		 hint2[0] = ans2>150 ? "It is greater then 150":"It is less than 150";
+		 hint2[1] = ans2%2==0 ? "It is even number":"It is odd number";
+		 hint2[2] = ans2%5==0 ? "It is divisible by 5":"It is not divisible by 5";
+		
+		int count1 = 0;
+		String ch1 ;
+		for(int i=0;i<3;i++){
+		    System.out.println("Do you want hint: ");
+		    ch1 = sc.nextLine();
+		    if(ch1.equalsIgnoreCase("y")){
+		        System.out.println("Hint no"+(i+1)+" :"+hint1[i]);
+		        count1++;
+		    }else{
+		        break;
+		    }
+		}
+		System.out.println("Predict your answer "+team1+" --->");
+		int guess1 = sc.nextInt();
+		int s1 = 300-(count1*25);
+		sc.nextLine();
+		s1=s1-Math.abs(ans1-guess1);
+		System.out.println("point of team1: "+s1);
+		
+		System.out.println("------------------------------------------");
+		
+		int count2 = 0;
+		String ch2 ;
+		for(int i=0;i<3;i++){
+		    System.out.println("Do you want hint: ");
+		    ch2 = sc.nextLine();
+		    if(ch2.equalsIgnoreCase("y")){
+		        System.out.println("Hint no"+(i+1)+" :"+hint2[i]);
+		        count2++;
+		    }else{
+		        break;
+		    }
+		}
+	    System.out.println("Predict your answer "+team2+" --->");
+		int guess2 = sc.nextInt();
+		int s2 = 300-(count2*25);
+		s2=s2-Math.abs(ans2-guess2);
+		System.out.println("Point of team2:"+s2);
+		
+		System.out.println("------------------------------------------");
+		
+		if(s1>s2){
+		    System.out.println(team1+"Is a winner");
+		}
+		else if(s2>s1){
+		    System.out.println(team2+"Is a winner");
+		}
+		else{
+		    System.out.println("Match is tie");
+		}
+		
+	}
+}
