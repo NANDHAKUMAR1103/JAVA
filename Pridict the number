@@ -1,0 +1,65 @@
+import java.util.*;
+public class Main
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        Random ran = new Random();
+        LinkedList<Integer>list = new LinkedList<>();
+        
+        for (int i=0; i<5; i++) {
+            int randomnumber = ran.nextInt(10)+1;
+            list.add(randomnumber);
+        }
+        System.out.println(list);
+        
+        System.out.println("Enter the name of player1: "); String player1=sc.nextLine();
+        System.out.println("Enter the name of player2: "); String player2=sc.nextLine();
+        System.out.println("Total choice five: ");
+        int s1=0;
+        int s2=0;
+        for(int i=0;i<3;i++)
+        {
+           System.out.print("Guess player 1: ");
+           int a=sc.nextInt();
+           if(list.contains(a)){
+               System.out.println("Correct");
+               s1++;
+               if(s1==2&&s2<=1){
+                    System.out.println(player1 + " is winner ");
+                    return;
+               }
+              
+           }
+           else{
+               System.out.println("Wrong");
+               
+           }
+           
+           System.out.print("Guess player 2: ");
+           int b=sc.nextInt();
+           if(list.contains(b)){
+               System.out.println("Correct");
+               s2++;
+                   if(s2==2&&s1<=1){
+                    System.out.println(player2 + " is winner ");
+                    return;
+               }
+               
+           }
+           else{
+               System.out.println("Wrong");
+           }
+        }
+        
+        if(s1>s2){
+            System.out.println(player1 + " is winner ");
+        }
+        else if(s2>s1){
+             System.out.println(player2 + " is winner ");
+        }
+        else{ System.out.println(player1 + " is winner ");}
+        
+        
+      
+    }
+}
