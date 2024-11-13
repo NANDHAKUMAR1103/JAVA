@@ -1,0 +1,31 @@
+public class Main {
+    
+   public static boolean ispalin(String str) {
+    int[] charcount = new int[26];
+    int oddcount = 0;
+    int index;
+    for (char ch : str.toCharArray()) {
+        if (Character.isLetter(ch)) {
+            index = Character.toLowerCase(ch) - 'a';
+            charcount[index]++; 
+            if (charcount[index] % 2 == 1)
+                oddcount++;
+            else
+                oddcount--;
+        }
+    }
+    
+    return oddcount <= 1;
+}
+
+    public static void main(String[] args) 
+    {
+       String str = "MALAYALAM";
+       if(ispalin(str)){
+           System.out.println("True");
+       }
+       else{
+           System.out.println("False");
+       }
+    }
+}
