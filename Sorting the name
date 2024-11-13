@@ -1,0 +1,33 @@
+import java.util.*;
+public class Main
+{
+ public static void main(String[] args)
+ {
+     Scanner sc =new Scanner(System.in);
+     System.out.println("Enter the total number of names: ");
+     int total = sc.nextInt();
+     sc.nextLine();
+     
+     String[] names = new String[total];
+     for(int i=0;i<total;i++){
+         names[i] = sc.next();
+     }
+     
+     for(int i=0;i<total-1;i++){
+         for(int j=i+1;j<total;j++){
+             if(names[i].compareTo(names[j]) >0)
+             {
+             String temp = names[i];
+             names[i] = names[j];
+             names[j] = temp;
+         }
+     }
+     }
+     System.out.println();
+     for(int i=0;i<total;i++){
+         System.out.println(names[i]);
+     }
+     
+     
+ }
+}
