@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Main extends Thread{
+    public void run(){
+        String[] boy ={"nithin","saran","nandha"};
+        for(int i=0;i<boy.length;i++){
+            System.out.println(boy[i]);
+            try{
+                Thread.sleep(1000);
+            }catch(InterruptedException e){
+                System.out.println("Thread interrupted");
+            }
+        }
+    }
+public static void main(String[] args) {
+    String[] girl ={"sam","riya","priya"};
+    Main m = new Main();
+    m.start();
+    
+    for(int i=0;i<girl.length;i++){
+            System.out.println(girl[i]);
+            try{
+                Thread.sleep(1000);
+            }catch(InterruptedException e){
+                System.out.println("Thread interrupted");
+            }
+        }
+
+    }
+}
