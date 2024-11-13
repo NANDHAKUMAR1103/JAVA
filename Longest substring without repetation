@@ -1,0 +1,20 @@
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str ="abcab";
+        int s=0,e=0;
+        Set<Character> seen = new HashSet<>();
+        int window = 1;
+        while(e<str.length()){
+           char ch = str.charAt(e);
+           while(seen.contains(ch)){
+               seen.remove(str.charAt(s));
+               s++;
+           }seen.add(ch);
+           window=seen.size();
+           e=e+1;
+        }System.out.println(window);
+    }
+    
+}
