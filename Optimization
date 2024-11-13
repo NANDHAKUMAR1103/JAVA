@@ -1,0 +1,36 @@
+
+
+
+import java.util.Arrays;
+import java.util.*;
+class HelloWorld {
+    
+    public static int sai(int[][] inter){
+        int[] start= new int[inter.length];
+        int[] end= new int[inter.length];
+        for(int i=0;i<inter.length;i++){
+            start[i]=inter[i][0];
+            end[i]=inter[i][1];
+        }
+        Arrays.sort(start);
+        Arrays.sort(end);
+        
+        int roomno=0;
+        int p=0;
+        for(int a:start){
+            if(a<end[p]){
+                roomno++;
+            }else{
+                p++;
+            }
+            
+        } return roomno;
+    }
+    
+    public static void main(String[] args) {
+        
+        int[][] inter={{0,10},{2,12},{13,16},{12,13},{17,20},{5,15},{16,19}};
+        int room = sai(inter);
+        System.out.println("The number of rooms: "+room);
+    }
+}
