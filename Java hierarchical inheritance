@@ -1,0 +1,69 @@
+
+import java.util.*;
+class vehicle{
+    public static void add1(String make, String model, int year,String fule)
+    {
+        System.out.println("make: "+make);
+        System.out.println("model: "+model);
+        System.out.println("year: "+year);
+        System.out.println("fule: "+fule);  
+    }
+}
+class truck extends vehicle {
+    public static void add2(int dist, int time , int fuel)
+    {
+        
+        int a=dist/time;
+        int b= a*time;
+        System.out.println("speed:"+a);
+        System.out.println("distance:"+b);
+        System.out.println("fuelefficency:"+dist/fuel);
+
+    }
+    
+}
+class car extends vehicle{
+    public static void add3(int dist, int time , int fuel)
+    {
+        
+        int a=dist/time;
+        int b= a*time;
+        System.out.println("speed:"+a);
+        System.out.println("distance:"+b);
+        System.out.println("fuelefficency:"+dist/fuel);
+          
+        
+    }
+    
+}
+class motorcyclecycle extends vehicle{
+    public static void add4(int dist, int time , int fuel)
+    {
+        
+        int a=dist/time;
+        int b= a*time;
+        System.out.println("speed:"+a);
+        System.out.println("distance:"+b);
+        System.out.println("fuelefficency:"+dist/fuel);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		
+		truck k2 = new truck();
+	    car k3 = new car();
+	    motorcyclecycle k4 = new motorcyclecycle();
+	    System.out.println("---------motocycle-----------");
+		k4.add1("hero","H221",1999,"petrol");
+		k4.add4(88520,745,99);
+		System.out.println("-----------truck-----------");
+		k2.add1("ll","l0221",1989,"diesel");
+		k2.add2(8870,785,99);
+		System.out.println("-------car-------");
+		k3.add1("BMW","B212",2001,"diesel");
+		k3.add3(8852,745,99);
+		
+		
+	}
+}
