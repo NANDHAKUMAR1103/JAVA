@@ -1,0 +1,142 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.*;
+abstract class Bankaccount {
+	public abstract void deposit(int total);
+	public abstract void withdraw(int totall);
+}
+
+
+class  savingsaccount extends Bankaccount {
+	int minb=500;
+
+	public void  deposit(int total)
+	{
+
+		System.out.println("amount in your account:"+total);
+		System.out.println("deposite is completed");
+	}
+	public void withdraw(int total)
+	{
+
+		if(total>minb)
+		{
+			System.out.println("withdraw is successfully completed");
+
+		}
+		else {
+			System.out.println("withdraw is unsuccessful due to low balance");
+		}
+	}
+}
+class  currentaccount extends Bankaccount {
+
+	public void  deposit(int totall)
+	{
+
+		System.out.println("amount in your account:"+totall);
+		System.out.println("deposite is completed");
+
+	}
+	public void withdraw(int totall)
+	{
+
+		if(totall>0)
+		{
+			System.out.println("withdraw is successfully completed");
+
+		}
+		else {
+			System.out.println("withdraw is unsuccessful due to low balance");
+		}
+	}
+}
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int q=10;
+		int count =0;
+		int total=10000;
+		int totall=10000;
+		for(int w=0; w<q; w++)
+		{
+
+			System.out.println("enter the account type saving or current");
+			String bank = sc.nextLine();
+			if(bank.equals("saving"))
+			{
+				count++;
+				if(count<6)
+				{
+
+					System.out.println("Enter the deposit or withdraw");
+					String choice = sc.nextLine();
+					if(choice.equals("deposit"))
+					{
+						savingsaccount p = new savingsaccount();
+						System.out.println("amount in your account:" +total);
+						System.out.println("enter the amount:");
+
+						int a=sc.nextInt();
+						total+=a;
+						p.deposit(total);
+						sc.nextLine();
+					}
+					else {
+						savingsaccount p = new savingsaccount();
+						System.out.println("amount in your account:" +total);
+						System.out.println("Enter the amount:");
+
+						int b=sc.nextInt();
+						total-=b;
+						p.withdraw(total);
+						sc.nextLine();
+					}
+				}
+				else {
+					System.out.println("you reach transaction limit ");
+				}
+			}
+
+			else if(bank.equals("current"))
+			{
+
+				System.out.println("Enter the deposit or withdraw");
+				String choice = sc.nextLine();
+				if(choice.equals("deposit"))
+				{
+					currentaccount p = new currentaccount();
+					System.out.println("amount in your account:" +totall);
+					System.out.println("enter the amount:");
+
+					int a=sc.nextInt();
+					totall+=a;
+					p.deposit(totall);
+					sc.nextLine();
+				}
+				else {
+					currentaccount p = new currentaccount();
+					System.out.println("amount in your account:" +totall);
+					System.out.println("Enter the amount:");
+
+					int b=sc.nextInt();
+					totall-=b;
+					p.withdraw(totall);
+					sc.nextLine();
+				}
+
+			}
+			else
+			{
+
+				System.out.println("enter valid account type");
+			}
+		}
+	}
+}
