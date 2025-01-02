@@ -1,0 +1,45 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.*;
+abstract class shape{
+    public abstract void calculatearea(int r, int a, int b);
+    public abstract void calculateperimeter(int r, int a,int b,int c);
+}
+
+class  circle extends shape{
+    public void  calculatearea( int r,int a,int b)
+    {
+        System.out.println(3.14*r*r);
+    }
+    public void calculateperimeter(int r, int a,int b,int c)
+    {
+        System.out.println(2*3.14*r);
+    }
+}
+class  triangle extends shape{
+    public void  calculatearea( int r,int a, int b)
+    {
+        System.out.println(0.5*(a+b));
+    }
+    public void calculateperimeter( int r, int a,int b,int c)
+    {
+        System.out.println(a+b+c);
+    }
+}
+public class Main{
+    
+	public static void main(String[] args) {
+		circle p = new circle();
+		p.calculatearea(9,0,0);
+		p.calculatearea(9,0,0);
+		triangle e=new triangle();
+		e.calculatearea(0,4,7);
+		e.calculateperimeter(0,4,7,6);
+		
+	}
+}
