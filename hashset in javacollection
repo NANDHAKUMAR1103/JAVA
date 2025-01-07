@@ -1,0 +1,126 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+    public static void add(Set<Integer> set, int val)
+    {
+        set.add(val);
+        System.out.println("value added");
+    }
+    public static void remove(Set<Integer> set , int val)
+    {
+        set.remove(val);
+        System.out.println("after value remove"+set);
+    }
+    public static void check(Set<Integer> set, int val){
+        String m=set.contains(val) ?"true":"false";
+        System.out.println(m);
+        
+    }
+    public static void empty(Set<Integer> set)
+    {
+        String m =set.isEmpty()?"empty":"not empty";
+        System.out.println(m);
+    }
+    public static void size(Set<Integer> set)
+    {
+        int m=set.size();
+        System.out.println(m);
+    }
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		HashSet<Integer> set= new HashSet<Integer>();
+		System.out.println("1.add the element to set");	
+		System.out.println("2.remove the elementto set");
+		System.out.println("3.check the element in the set");
+		System.out.println("4.to check the set is empty");
+		System.out.println("5.to check the size of the set");
+		//System.out.println("");
+		//System.out.println("");
+		//System.out.println("");
+		
+		int val,choice;
+		do{
+		    System.out.print("Enter your choice:");
+		    choice = sc.nextInt();
+		    switch(choice)
+		    {
+		        case 1:
+		            System.out.print("Enter the value to add:");
+		            val =sc.nextInt();
+		            Integer arr[]= set.toArray(new Integer[0]);
+		            int count=0;
+		            for(int i=0;i<arr.length;i++)
+		            {
+		                if(arr[i]==val)
+		                {
+		                    count++;
+		                }   
+		            }
+		            if(count==1)
+		            {
+		                System.out.println("the element is already inthe list");
+		            }
+		            else{
+		                add(set,val);
+		            }
+		            break;
+		           
+		            
+		        case 2:
+		            System.out.print("Enter the value to remove:");
+		            val =sc.nextInt();
+		             Integer arrr[]= set.toArray(new Integer[0]);
+		            int coount=0;
+		            for(int i=0;i<arrr.length;i++)
+		            {
+		                if(arrr[i]==val)
+		                {
+		                    coount++;
+		                }   
+		            }
+		            if(coount==1)
+		            {
+		                remove(set,val);
+		            }
+		            else{
+		                System.out.println("the element is not  in the list");
+		                
+		            }
+		            break;
+		            
+		        case 3:
+		            System.out.print("Enter the value to check:");
+		            val  =sc.nextInt();
+		            check(set,val);
+		            break;
+		        case 4:
+		            empty(set);
+		            break;
+		        case 5:
+		            size(set);
+		            break;
+		            
+		         case 6:
+		             System.out.println("exited");
+		             break;
+		        default :
+		            System.out.println("Enter the valid choice");
+		            break;
+		            
+		    }
+		    System.out.println("element in the set" +set);
+		    }while(choice!=6);
+		    
+		
+
+		
+	}
+}
