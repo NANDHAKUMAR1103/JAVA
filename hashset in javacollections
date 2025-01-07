@@ -1,0 +1,56 @@
+import java.util.HashSet;
+import java.util.Set;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    System.out.println("List Of Games:");
+	    System.out.println("Cricket");
+	    System.out.println("Chess");
+	    System.out.println("Volley Ball");
+	    Scanner sc = new Scanner(System.in);
+	    ArrayList<String>CT = new ArrayList<>();
+	    ArrayList<String>CS = new ArrayList<>();
+	    ArrayList<String>VB = new ArrayList<>();
+	    ArrayList<String>NP = new ArrayList<>();
+	    Set<String>TC = new HashSet<String>();
+	    
+	    System.out.println("Total Students Count:");
+	    int n = sc.nextInt();
+	    sc.nextLine();
+	    String name;
+	    String choice;
+	    for(int i=0;i<n;i++){
+	        System.out.println("Enter Student name: ");
+	        name = sc.nextLine();
+	      //  sc.nextLine();
+	        System.out.println("Enter choice: ");
+	        choice = sc.nextLine();
+	        if(choice.equals("cricket")){
+	            CT.add(name);
+	            
+	        }
+	        else if(choice.equals("chess")){
+	            CS.add(name);
+	            
+	        }
+	        else if(choice.equals("volleyball")){
+	            VB.add(name);
+	            
+	        }
+	        else{
+	            NP.add(name);
+	            
+	        }
+	    }
+	    System.out.println("Cricket Count:"+CT.size());
+	    System.out.println("Chess Count:"+CS.size());
+	    System.out.println("Volley Ball Count:"+VB.size());
+	    System.out.println("Not Willing Count:"+NP.size());
+	    TC.addAll(CT);
+	    TC.addAll(CS);
+	    TC.addAll(VB);
+	    System.out.println(TC);
+	}
+}
